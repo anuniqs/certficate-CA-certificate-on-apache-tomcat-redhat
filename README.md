@@ -36,17 +36,17 @@ SIte address : https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
 
 **Step  4 :** Import each signed certificate that is issued by the CA using the following commands - 
 
-For Root certificate : 
+**For Root certificate :** 
 
 [root@192 bin]# keytool -import -alias root -keystore C:\mykeystore.jks -trustcacerts -file C:\valicert_class2_root.crt
 
-For Intermediate certificate : 
+**For Intermediate certificate :** 
 
 [root@192 bin]# keytool -import -alias intermed -keystore C:\mykeystore.jks -trustcacerts -file C:\gd_intermediate.crt
 
-For Issued server/domain certificate : 
+**For Issued server/domain certificate :** 
 
 [root@192 bin]# keytool -import -alias tomcat -keystore C:\mykeystore.jks -trustcacerts -file C:\server_certificate_whatevername.crt
 
 
-Step 5 : Close the command line.
+**Step 5 :** Close the command line.

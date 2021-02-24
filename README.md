@@ -1,6 +1,6 @@
-Self signed - 
+### Self signed - 
 
-https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
+SIte address : https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
 
 [root@192 bin]# keytool -genkey -alias alias_name -keyalg RSA -keysize 2048 -validity 10000 -v -keystore "/home/anup/java-11/bin/mykeystore.jks" -ext SAN=dns:localhost,ip:192.168.43.135
 
@@ -20,6 +20,7 @@ https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
                SSLVerifyClient="none" sslProtocol="TLS" />
 
 
+### Creating a CA-Signed Certificate for the Tomcat Server - 
 
 1. To generate a CSR, run the following command:
 
@@ -31,13 +32,10 @@ keytool -certreq -keyalg RSA -alias tomcat -file C:\somename.csr -keystore C:\my
 
 4. Import each signed certificate that is issued by the CA using the following commands:
 
-Root certificate:
-keytool -import -alias root -keystore C:\mykeystore.jks -trustcacerts -file C:\valicert_class2_root.crt
+**Root certificate:** keytool -import -alias root -keystore C:\mykeystore.jks -trustcacerts -file C:\valicert_class2_root.crt
 
-Intermediate certificate:
-keytool -import -alias intermed -keystore C:\mykeystore.jks -trustcacerts -file C:\gd_intermediate.crt
+**Intermediate certificate:** keytool -import -alias intermed -keystore C:\mykeystore.jks -trustcacerts -file C:\gd_intermediate.crt
 
-Issued server/domain certificate:
-keytool -import -alias tomcat -keystore C:\mykeystore.jks -trustcacerts -file C:\server_certificate_whatevername.crt
+**Issued server/domain certificate:** keytool -import -alias tomcat -keystore C:\mykeystore.jks -trustcacerts -file C:\server_certificate_whatevername.crt
 
 5. Close the command line.

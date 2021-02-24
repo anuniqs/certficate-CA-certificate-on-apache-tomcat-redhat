@@ -23,24 +23,30 @@ SIte address : https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
 ### Creating a CA-Signed Certificate for the Tomcat Server - 
 
 
-Step 1 : To generate a CSR, run the following command:
+**Step 1 :** To generate a CSR, run the following command:
 
-keytool -certreq -keyalg RSA -alias tomcat -file C:\somename.csr -keystore C:\mykeystore.jks -validity <daysValid> -ext SAN=dns:<domainname>
-
-
-Step 2 : Upload the CSR to the CA website, indicate the type of Tomcat server, and submit for signing.
+[root@192 bin]# keytool -certreq -keyalg RSA -alias tomcat -file C:\somename.csr -keystore C:\mykeystore.jks -validity <daysValid> -ext SAN=dns:<domainname>
 
 
-Step 3 : Download the root, intermediate, and issued server/domain certificates.
+**Step 2 :** Upload the CSR to the CA website, indicate the type of Tomcat server, and submit for signing.
 
 
-Step  4 : Import each signed certificate that is issued by the CA using the following commands:
+**Step 3 :** Download the root, intermediate, and issued server/domain certificates.
 
-Root certificate : keytool -import -alias root -keystore C:\mykeystore.jks -trustcacerts -file C:\valicert_class2_root.crt
 
-Intermediate certificate : keytool -import -alias intermed -keystore C:\mykeystore.jks -trustcacerts -file C:\gd_intermediate.crt
+**Step  4 :** Import each signed certificate that is issued by the CA using the following commands - 
 
-Issued server/domain certificate : keytool -import -alias tomcat -keystore C:\mykeystore.jks -trustcacerts -file C:\server_certificate_whatevername.crt
+For Root certificate : 
+
+[root@192 bin]# keytool -import -alias root -keystore C:\mykeystore.jks -trustcacerts -file C:\valicert_class2_root.crt
+
+For Intermediate certificate : 
+
+[root@192 bin]# keytool -import -alias intermed -keystore C:\mykeystore.jks -trustcacerts -file C:\gd_intermediate.crt
+
+For Issued server/domain certificate : 
+
+[root@192 bin]# keytool -import -alias tomcat -keystore C:\mykeystore.jks -trustcacerts -file C:\server_certificate_whatevername.crt
 
 
 Step 5 : Close the command line.

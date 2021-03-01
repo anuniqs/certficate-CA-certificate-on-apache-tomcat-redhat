@@ -21,7 +21,7 @@ SIte address : https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
                SSLVerifyClient="none" sslProtocol="TLS" />
 ```
 
-### Creating a CA-Signed Certificate for the Tomcat Server - 
+### Creating a CA-Signed Certificate for the Tomcat Server — 
 
 
 **Step 1 :** To generate a CSR, run the following command:

@@ -1,4 +1,4 @@
-### Self signed - 
+### Self signed —
 
 SIte address : https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
 
@@ -7,6 +7,7 @@ SIte address : https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
 
 [root@192 apache-tomcat-9.0.41]# nano conf/server.xml
 
+```
     <Connector port="8080" protocol="HTTP/1.1"
                connectionTimeout="20000"
                redirectPort="8443" />
@@ -18,7 +19,7 @@ SIte address : https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
                keyAlias="alias_name" keystoreFile="/home/anup/java-11/bin/my-release-key.jks"
                keystorePass="Orbit@2020" clientAuth="false"
                SSLVerifyClient="none" sslProtocol="TLS" />
-
+```
 
 ### Creating a CA-Signed Certificate for the Tomcat Server - 
 
@@ -36,6 +37,7 @@ SIte address : https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
 
 **Step  4 :** Import each signed certificate that is issued by the CA using the following commands - 
 
+
 **For Root certificate :** 
 
 [root@192 bin]# keytool -import -alias root -keystore C:\mykeystore.jks -trustcacerts -file C:\valicert_class2_root.crt
@@ -50,3 +52,7 @@ SIte address : https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html
 
 
 **Step 5 :** Close the command line.
+
+.
+  
+**@ By — Anup Kumar Mondal**
